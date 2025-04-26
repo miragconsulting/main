@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MIRAG CONSULTING D.O.O. | Ваш надёжный партнёр в инвестициях в Словении</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/miragconsulting/Images/main/favicon.ico">
+  <!-- Tailwind CSS (v2.2.19) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Fonts: Montserrat & Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+      color: #243146;
+    }
+    .font-mont { font-family: 'Montserrat', Arial, sans-serif; }
+    .hero-bg {
+      background: linear-gradient(105deg,rgba(36,49,100,0.74) 55%,rgba(58,222,220,0.12)),
+      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    .project-img {object-fit: cover;}
+    .blur-bg {
+      backdrop-filter: blur(4px) saturate(145%);
+      background: rgba(255,255,255,0.79);
+    }
+    [data-aos] {will-change: transform, opacity;}
+    /* Address single-line fix */
+    .nowrap-address {white-space: nowrap;}
+    .addressfix {word-break: break-word;}
+    /* For PDF export, prevent scrollbars in containers */
+    .no-scrollbar::-webkit-scrollbar {display: none;}
+  </style>
+</head>
+<body class="antialiased min-h-screen">
+  <!-- Шапка -->
+  <header class="w-full z-40 relative pt-6 pb-2 px-2 sm:px-8 flex flex-col items-center justify-center">
+    <div class="w-full max-w-7xl flex flex-col sm:flex-row items-center justify-between">
+      <div class="flex items-center space-x-3" data-aos="fade-right">
+        <img src="https://raw.githubusercontent.com/miragconsulting/Images/main/miraglogo.png" alt="Mirag Logo" class="h-14 sm:h-16 w-auto">
+        <span class="text-2xl sm:text-3xl text-blue-700 font-mont font-bold tracking-tight">MIRAG CONSULTING D.O.O.</span>
+      </div>
+      <div class="hidden sm:flex font-mont text-base tracking-wide space-x-7">
+        <span class="text-blue-400">20+ лет на рынке</span>
+        <span class="text-gray-500">Эксперты: финансы, инжиниринг, недвижимость</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-bg transition duration-500 min-h-72 py-16 flex flex-col justify-between items-center w-full" data-aos="zoom-in-up">
+    <div class="max-w-4xl w-full mx-auto flex flex-col items-center text-center">
+      <h1 class="font-mont text-white text-4xl sm:text-5xl font-bold mb-4 drop-shadow-xl" style="text-shadow: 0 2px 14px rgba(40,60,120,.26);">
+        Ваш надёжный партнёр в инвестициях в Словении
+      </h1>
+      <p class="text-xl text-blue-100 font-semibold mb-7 shadow-sm">Строим ваше будущее в центре Европы</p>
+    </div>
+  </section>
+
+  <!-- Экономика и преимущества -->
+  <section class="max-w-7xl mx-auto rounded-xl mt-8 py-8 px-3" style="background:linear-gradient(110deg, #48bb78 7%, #9f7aea 63%, #4299e1 99%);">
+    <div class="flex flex-col md:flex-row items-center justify-between flex-wrap">
+      <!-- График -->
+      <div class="md:w-2/3 w-full p-4 rounded-2xl mb-6 md:mb-0 bg-white bg-opacity-80 shadow-lg" data-aos="fade-up">
+        <h2 class="font-mont text-2xl md:text-3xl font-bold text-blue-700 mb-2">Экономический рост Словении (2020–2026)</h2>
+        <div id="eco-chart" style="height:260px;width:100%;"></div>
+      </div>
+      <!-- Преимущества -->
+      <div class="md:w-1/3 w-full pl-2">
+        <h3 class="font-mont mb-2 text-lg text-gray-100 font-semibold">Преимущества инвестиций</h3>
+        <ul class="space-y-3 text-base text-white font-semibold">
+          <li class="flex items-center" data-aos="fade-right"><i class="fas fa-university text-green-200 mr-2"></i>Стабильная экономика</li>
+          <li class="flex items-center" data-aos="fade-right" data-aos-delay="40"><i class="fas fa-users text-yellow-100 mr-2"></i>Европейские стандарты, членство в ЕС и Шенгене</li>
+          <li class="flex items-center" data-aos="fade-right" data-aos-delay="80"><i class="fas fa-percentage text-pink-200 mr-2"></i>Привлекательная налоговая система</li>
+          <li class="flex items-center" data-aos="fade-right" data-aos-delay="120"><i class="fas fa-shield-alt text-blue-200 mr-2"></i>Высокая безопасность инвестиций</li>
+          <li class="flex items-center" data-aos="fade-right" data-aos-delay="160"><i class="fas fa-user-check text-teal-200 mr-2"></i>Возможность ВНЖ / ПМЖ / гражданства для инвесторов</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Галерея и проекты -->
+  <section class="max-w-7xl mx-auto px-2 pt-14 pb-0">
+    <div class="flex flex-wrap items-center justify-between mb-10">
+      <h2 class="font-mont text-3xl md:text-4xl font-bold text-blue-800" data-aos="fade-right">Инвестиционные проекты</h2>
+      <p class="text-gray-600 ml-4" data-aos="fade-left">Актуальные объекты для ваших инвестиций:</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="blur-bg rounded-2xl shadow-xl p-0" data-aos="zoom-in" data-aos-delay="50">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Проект 1" class="w-full project-img h-48 rounded-t-2xl transition-transform duration-300 hover:scale-105">
+        <div class="p-5">
+          <h3 class="font-mont text-xl font-bold text-teal-800">Элитная городская вилла в Любляне</h3>
+          <p class="text-gray-700 mt-1">Современные апартаменты в центре города с гарантированной доходностью.</p>
+          <div class="flex items-center mt-2">
+            <span class="font-mont text-lg text-blue-500 font-bold mr-1">€1 100 000</span>
+            <a href="#" class="ml-auto bg-gradient-to-r from-pink-400 to-blue-400 text-white rounded-full px-6 py-2 font-semibold shadow-lg hover:from-blue-400 hover:to-teal-400 transition-colors duration-250">Подробнее</a>
+          </div>
+        </div>
+      </div>
+      <div class="blur-bg rounded-2xl shadow-xl p-0" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Проект 2" class="w-full project-img h-48 rounded-t-2xl transition-transform duration-300 hover:scale-105">
+        <div class="p-5">
+          <h3 class="font-mont text-xl font-bold text-pink-700">Гостиничный комплекс на озере Блед</h3>
+          <p class="text-gray-700 mt-1">Эко-отель премиум класса с видом на озеро и Альпы, стабильная окупаемость.</p>
+          <div class="flex items-center mt-2">
+            <span class="font-mont text-lg text-blue-500 font-bold mr-1">€2 450 000</span>
+            <a href="#" class="ml-auto bg-gradient-to-r from-purple-400 to-teal-400 text-white rounded-full px-6 py-2 font-semibold shadow-lg hover:from-teal-400 hover:to-pink-400 transition-colors duration-250">Подробнее</a>
+          </div>
+        </div>
+      </div>
+      <div class="blur-bg rounded-2xl shadow-xl p-0" data-aos="zoom-in" data-aos-delay="150">
+        <img src="https://images.unsplash.com/photo-1509228468518-caa2040b9b58?auto=format&fit=crop&w=600&q=80" alt="Проект 3" class="w-full project-img h-48 rounded-t-2xl transition-transform duration-300 hover:scale-105">
+        <div class="p-5">
+          <h3 class="font-mont text-xl font-bold text-blue-800">Идея — торговый центр в пригорода Любляны</h3>
+          <p class="text-gray-700 mt-1">Новейший торгово-развлекательный комплекс в быстрорастущем районе.</p>
+          <div class="flex items-center mt-2">
+            <span class="font-mont text-lg text-blue-500 font-bold mr-1">€3 000 000</span>
+            <a href="#" class="ml-auto bg-gradient-to-r from-green-400 to-blue-400 text-white rounded-full px-6 py-2 font-semibold shadow-lg hover:from-blue-400 hover:to-green-400 transition-colors duration-250">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Галерея природы/архитектуры -->
+  <section class="max-w-7xl mx-auto py-10 px-2">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <img src="https://jakubpolomski.com/wp-content/uploads/2023/05/Lake-Bled-Church-Slovenia-Landscape-190600SLO0351.jpg"
+          alt="Lake Bled" class="rounded-xl h-40 w-full object-cover shadow-2xl transform hover:scale-105 transition duration-400" data-aos="fade-up"/>
+      <img src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/789a3c07ab0192b2c7fa5f4f7c1a7290f74e39f1/big-45e5ee54cd17d8cd8df7f475c4bc284a.jpg"
+          alt="Slovenian Alps" class="rounded-xl h-40 w-full object-cover shadow-2xl transform hover:scale-105 transition duration-400" data-aos="fade-up" data-aos-delay="100"/>
+      <img src="https://d1hirb55zrpywb.cloudfront.net/macs-adventure-tours/routes/WSlSVA/routeimagegallery/julian1-rsz-10102019092906822.jpg"
+          alt="Mountains and lakes" class="rounded-xl h-40 w-full object-cover shadow-2xl transform hover:scale-105 transition duration-400" data-aos="fade-up" data-aos-delay="160"/>
+      <img src="https://static.wixstatic.com/media/7ce5eb_c2dc443584fa4a5fb78cf359ce184583~mv2.png/v1/fill/w_1000,h_563,al_c,q_90,usm_0.66_1.00_0.01/7ce5eb_c2dc443584fa4a5fb78cf359ce184583~mv2.png"
+          alt="Modern Buildings" class="rounded-xl h-40 w-full object-cover shadow-2xl transform hover:scale-105 transition duration-400" data-aos="fade-up" data-aos-delay="210"/>
+    </div>
+  </section>
+
+  <!-- О компании -->
+  <section class="max-w-5xl mx-auto my-20 px-4 py-9 rounded-2xl shadow-2xl bg-gradient-to-tr from-blue-100 via-white to-teal-100" data-aos="fade-up" data-aos-delay="60">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-3/5 w-full">
+          <h2 class="font-mont text-2xl md:text-3xl text-blue-900 font-bold mb-2">О компании</h2>
+          <p class="mt-3 text-lg text-gray-800 leading-relaxed">
+            <span class="font-bold text-blue-600">MIRAG CONSULTING D.O.O.</span> — это команда профессионалов с более чем 20-летним опытом. Мы предоставляем полный спектр услуг в области финансового консалтинга, инжиниринга и недвижимости в Словении. Наша команда из более чем 10 экспертов имеет все лицензии и сертификации. <br> Главные ценности: эффективность, прозрачность, индивидуальный подход.
+          </p>
+        </div>
+        <div class="md:w-2/5 w-full flex justify-center mt-6 md:mt-0" data-aos="fade-left">
+          <img src="https://raw.githubusercontent.com/miragconsulting/Images/main/miraglogo.png" alt="Mirag Consulting" class="w-40 h-40 object-contain rounded-full shadow-xl border-4 border-blue-200">
+        </div>
+      </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="max-w-5xl mx-auto mt-10 mb-7 px-8 py-8 rounded-2xl bg-gradient-to-tr from-teal-100 via-blue-100 to-white shadow-2xl" data-aos="fade-up">
+    <h2 class="font-mont text-2xl md:text-3xl font-bold text-blue-900 mb-3">Контакты</h2>
+    <div class="md:flex md:space-x-16 items-start">
+      <div class="space-y-2 md:min-w-max">
+        <div class="flex items-center space-x-2"><i class="fas fa-envelope text-blue-500"></i>
+          <a href="/cdn-cgi/l/email-protection#6c25020a032c01051e0d0b421f05" class="text-lg text-blue-700 hover:underline"><span class="__cf_email__" data-cfemail="632a0d050c230e0a1102044d100a">[email&#160;protected]</span></a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fas fa-phone text-blue-500"></i>
+          <a href="tel:+38664177151" class="text-lg text-blue-700 hover:underline">+386 64 177 151</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fab fa-whatsapp text-green-500"></i>
+          <a href="https://wa.me/38664177151" class="text-lg text-blue-700 hover:underline" target="_blank">WhatsApp</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fab fa-telegram-plane text-blue-400"></i>
+          <a href="https://t.me/yourtelegram" class="text-lg text-blue-700 hover:underline" target="_blank">Telegram</a>
+        </div>
+        <div class="flex items-center space-x-2 addressfix"><i class="fas fa-map-marker-alt text-red-400"></i>
+          <span class="text-lg text-blue-700">Slovenia, Ljubljana, Likozarjeva ulica&nbsp;3</span>
+        </div>
+      </div>
+      <div class="flex-1 mt-5 md:mt-0 md:max-w-lg w-full h-80 rounded-lg overflow-hidden shadow-xl border-2 border-blue-100">
+        <div id="gmap" class="w-full h-full"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ElevenLabs Convai Widget -->
+  <elevenlabs-convai agent-id="cWZ3sxK7lNWPJ8JZEUSx"></elevenlabs-convai>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+
+  <!-- AOS init -->
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 60 });
+  </script>
+
+  <!-- ECharts: Экономика Словении -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // Экономический рост Словении, только ростовые года (условное значение, позитивный тренд)
+      const chartDom = document.getElementById('eco-chart');
+      if (chartDom) {
+        const ecoChart = echarts.init(chartDom);
+        const option = {
+          grid: {left: 55, right: 12, top: 22, bottom: 36},
+          xAxis: {
+              type: 'category',
+              data: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+              axisLine: { lineStyle: { color: '#4299e1' }},
+              axisLabel: { color: '#243146', fontFamily: 'Montserrat', fontWeight: 'bold' }
+          },
+          yAxis: {
+              type: 'value',
+              axisLabel: { color: '#4299e1', fontWeight: 600, fontFamily: 'Montserrat', formatter: '{value} %'},
+              splitLine: { lineStyle: { color: "#e0e7ff" } }
+          },
+          series: [{
+              data: [1.5, 3.1, 4.2, 4.5, 5.2, 5.8, 6.3],
+              type: 'line',
+              smooth: true,
+              lineStyle: { color: '#38bdf8', width: 4, shadowColor:'#bee3f8', shadowBlur:10 },
+              itemStyle: { color: '#60a5fa', shadowColor:'#38bdf8', shadowBlur:6 },
+              areaStyle: {
+                color: new echarts.graphic.LinearGradient(0,0,0,1, [
+                  {offset:0, color:'#38bdf8cc'},
+                  {offset:1, color:'#C7D2FE33'}
+                ])
+              },
+              symbol: 'circle',
+              symbolSize: 10,
+              emphasis: { focus: 'series' }
+          }],
+          tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#2563eb',
+            borderRadius: 8,
+            textStyle: {color:'#fff', fontFamily: 'Montserrat', fontWeight:600}
+          }
+        };
+        ecoChart.setOption(option);
+        window.addEventListener('resize', () => ecoChart.resize());
+      }
+    });
+  </script>
+
+  <!-- Google Maps -->
+  <script>
+    window.initMap = function() {
+      var loc = {lat: 46.0632, lng: 14.5098};
+      var map = new google.maps.Map(document.getElementById('gmap'), {
+        center: loc, zoom: 16, disableDefaultUI: true, gestureHandling: 'none'
+      });
+      new google.maps.Marker({position: loc, map: map, title: "MIRAG CONSULTING D.O.O."});
+    };
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVDV3tm8GLlEOMqPRGYkEje0cm4WHdUeg&callback=initMap"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDtBAS2R1eMPgaaqAd78rx1v7%2Fpt5MgPhaHgf3%2FUlmDcR4i6lzwCNqMLsBnpfiwgAX8yCR8enQ%2BhrsPsStktQKoah%2BH6oF6vz%2B%2Fus73cP6n9oQpzfnw5X4Abrw7F9clr1WGzoyUB%2F9XE1Hh1gKkmvqZ661Kl9tLgRQpVxpLs3cM6XgxydlpqLF4VSSSauaSCYZnLYnpE1cTTGcuCqDmKRfPj%2F3nU5t%2BECcL%2F1rSIlBozNfNefuvqC%2BsdQynEtz6FjsQtJk6V2CDMoFZX7uT9evkUIbebDhJWBS7COFMaQ2XaBxdm5l%2FOfHn%2BdYR5vIfZ28lRbRDcsFJLTXTYBvVei4ql7CQJKLuFYP2kufbiIrjzAmk1JaQutL9TIB3DGSRLqCZgwmnQM3cPbc%2BY7MWnXvGsGcRAOPZw1ylF27pMrttRVyIAhZz3OR%2Fve4y7B2kl5ZTZF9dmf3s07lFfTmHOfMWT9IyP9L8Iani%2F9V6t9FTOkued3hIA8FZoeaJLpnODQ8MhOVbe%2BRdv6novK6WzJuZE%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDtBAS2R1eMPgaaqAd78rx1v7/pt5MgPhaHgf3/UlmDcR4i6lzwCNqMLsBnpfiwgAX8yCR8enQ+hrsPsStktQKoah+H6oF6vz+/us73cP6n9oQpzfnw5X4Abrw7F9clr1WGzoyUB/9XE1Hh1gKkmvqZ661Kl9tLgRQpVxpLs3cM6XgxydlpqLF4VSSSauaSCYZnLYnpE1cTTGcuCqDmKRfPj/3nU5t+ECcL/1rSIlBozNfNefuvqC+sdQynEtz6FjsQtJk6V2CDMoFZX7uT9evkUIbebDhJWBS7COFMaQ2XaBxdm5l/OfHn+dYR5vIfZ28lRbRDcsFJLTXTYBvVei4ql7CQJKLuFYP2kufbiIrjzAmk1JaQutL9TIB3DGSRLqCZgwmnQM3cPbc+Y7MWnXvGsGcRAOPZw1ylF27pMrttRVyIAhZz3OR/ve4y7B2kl5ZTZF9dmf3s07lFfTmHOfMWT9IyP9L8Iani/9V6t9FTOkued3hIA8FZoeaJLpnODQ8MhOVbe+Rdv6novK6WzJuZE=";
+    </script>
+    
