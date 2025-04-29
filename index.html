@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -39,10 +38,54 @@
     .addressfix {word-break: break-word;}
     /* For PDF export, prevent scrollbars in containers */
     .no-scrollbar::-webkit-scrollbar {display: none;}
+    
+    /* Navigation menu styles */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4299e1;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover:after, .nav-link.active:after {
+      width: 100%;
+    }
+    .nav-link:hover {
+      color: #4299e1;
+    }
+    .nav-link.active {
+      color: #4299e1;
+      font-weight: 600;
+    }
+    /* Mobile menu */
+    .mobile-menu {
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    /* Article card hover effect */
+    .article-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
   </style>
 </head>
 <body class="antialiased min-h-screen">
-  <!-- Шапка -->
+  <!-- Шапка с навигацией -->
   <header class="w-full z-40 relative pt-6 pb-2 px-2 sm:px-8 flex flex-col items-center justify-center">
     <div class="w-full max-w-7xl flex flex-col sm:flex-row items-center justify-between">
       <div class="flex items-center space-x-3" data-aos="fade-right">
@@ -54,10 +97,40 @@
         <span class="text-gray-500">Эксперты: финансы, инжиниринг, недвижимость</span>
       </div>
     </div>
+    
+    <!-- Навигационное меню -->
+    <nav class="w-full max-w-7xl mt-4 flex flex-wrap items-center justify-between" data-aos="fade-down">
+      <!-- Десктопное меню -->
+      <div class="hidden md:flex font-mont text-lg tracking-wide space-x-10">
+        <a href="#home" class="nav-link active">Главная</a>
+        <a href="#projects" class="nav-link">Проекты</a>
+        <a href="#articles" class="nav-link">Статьи</a>
+        <a href="#about" class="nav-link">О компании</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </div>
+      
+      <!-- Мобильное меню - кнопка -->
+      <div class="md:hidden w-full flex justify-end">
+        <button id="menu-toggle" class="text-blue-700 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      <!-- Мобильное меню - содержимое -->
+      <div id="mobile-menu" class="mobile-menu md:hidden w-full mt-4 bg-white rounded-lg shadow-lg p-4">
+        <div class="flex flex-col space-y-4 font-mont text-lg">
+          <a href="#home" class="nav-link active">Главная</a>
+          <a href="#projects" class="nav-link">Проекты</a>
+          <a href="#articles" class="nav-link">Статьи</a>
+          <a href="#about" class="nav-link">О компании</a>
+          <a href="#contacts" class="nav-link">Контакты</a>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <!-- HERO -->
-  <section class="hero-bg transition duration-500 min-h-72 py-16 flex flex-col justify-between items-center w-full" data-aos="zoom-in-up">
+  <section id="home" class="hero-bg transition duration-500 min-h-72 py-16 flex flex-col justify-between items-center w-full" data-aos="zoom-in-up">
     <div class="max-w-4xl w-full mx-auto flex flex-col items-center text-center">
       <h1 class="font-mont text-white text-4xl sm:text-5xl font-bold mb-4 drop-shadow-xl" style="text-shadow: 0 2px 14px rgba(40,60,120,.26);">
         Ваш надёжный партнёр в инвестициях в Словении
@@ -89,7 +162,7 @@
   </section>
 
   <!-- Галерея и проекты -->
-  <section class="max-w-7xl mx-auto px-2 pt-14 pb-0">
+  <section id="projects" class="max-w-7xl mx-auto px-2 pt-14 pb-0">
     <div class="flex flex-wrap items-center justify-between mb-10">
       <h2 class="font-mont text-3xl md:text-4xl font-bold text-blue-800" data-aos="fade-right">Инвестиционные проекты</h2>
       <p class="text-gray-600 ml-4" data-aos="fade-left">Актуальные объекты для ваших инвестиций:</p>
@@ -130,7 +203,7 @@
       </div>
     </div>
   </section>
-   <section class="max-w-7xl mx-auto px-2 pt-14 pb-0">
+   <section class="max-w-7xl mx-auto px-2 pt-8 pb-0">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="blur-bg rounded-2xl shadow-xl p-0" data-aos="zoom-in" data-aos-delay="50">
         <img src="https://raw.githubusercontent.com/miragconsulting/Images/main/bistrica1.jpg?auto=format&fit=crop&w=600&q=80" alt="Проект 1" class="w-full project-img h-48 rounded-t-2xl transition-transform duration-300 hover:scale-105">
@@ -182,8 +255,73 @@
     </div>
   </section>
 
+  <!-- SECTION: СТАТЬИ -->
+  <section id="articles" class="max-w-7xl mx-auto px-4 pt-20 pb-16">
+    <div class="flex flex-wrap items-center justify-between mb-10">
+      <h2 class="font-mont text-3xl md:text-4xl font-bold text-blue-800" data-aos="fade-right">Статьи</h2>
+      <p class="text-gray-600 ml-4" data-aos="fade-left">Полезная информация об инвестициях в Словении</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Статья 1 -->
+      <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+        <div class="h-48 overflow-hidden">
+          <img src="https://jakubpolomski.com/wp-content/uploads/2023/05/Lake-Bled-Church-Slovenia-Landscape-190600SLO0351.jpg" alt="Озеро Блед" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold mb-3">Недвижимость</span>
+          <h3 class="font-mont text-xl font-bold text-blue-900 mb-2">Инвестиции в недвижимость Словении: тренды 2024 года</h3>
+          <p class="text-gray-600 mb-4">Анализ рынка недвижимости Словении, перспективные направления и прибыльные объекты для инвестиций.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 text-sm">15 марта 2024</span>
+            <a href="#" class="text-blue-600 font-semibold hover:underline">Читать статью →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Статья 2 -->
+      <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="h-48 overflow-hidden">
+          <img src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/789a3c07ab0192b2c7fa5f4f7c1a7290f74e39f1/big-45e5ee54cd17d8cd8df7f475c4bc284a.jpg" alt="Юлийские Альпы" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold mb-3">Туризм</span>
+          <h3 class="font-mont text-xl font-bold text-blue-900 mb-2">Развитие туризма в Словении: потенциал для инвесторов</h3>
+          <p class="text-gray-600 mb-4">Как развивается туристический сектор Словении и какие возможности он открывает для инвесторов.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 text-sm">2 февраля 2024</span>
+            <a href="#" class="text-blue-600 font-semibold hover:underline">Читать статью →</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Статья 3 -->
+      <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+        <div class="h-48 overflow-hidden">
+          <img src="https://static.wixstatic.com/media/7ce5eb_c2dc443584fa4a5fb78cf359ce184583~mv2.png/v1/fill/w_1000,h_563,al_c,q_90,usm_0.66_1.00_0.01/7ce5eb_c2dc443584fa4a5fb78cf359ce184583~mv2.png" alt="Бизнес в Словении" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-semibold mb-3">Бизнес</span>
+          <h3 class="font-mont text-xl font-bold text-blue-900 mb-2">ВНЖ в Словении через инвестиции: полный гид</h3>
+          <p class="text-gray-600 mb-4">Подробное руководство по получению вида на жительство в Словении через инвестирование.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 text-sm">10 января 2024</span>
+            <a href="#" class="text-blue-600 font-semibold hover:underline">Читать статью →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Кнопка "Все статьи" -->
+    <div class="flex justify-center mt-12" data-aos="fade-up" data-aos-delay="200">
+      <a href="#" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:from-indigo-600 hover:to-blue-500 transition-colors duration-300">
+        Все статьи <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </section>
+
   <!-- О компании -->
-  <section class="max-w-5xl mx-auto my-20 px-4 py-9 rounded-2xl shadow-2xl bg-gradient-to-tr from-blue-100 via-white to-teal-100" data-aos="fade-up" data-aos-delay="60">
+  <section id="about" class="max-w-5xl mx-auto my-20 px-4 py-9 rounded-2xl shadow-2xl bg-gradient-to-tr from-blue-100 via-white to-teal-100" data-aos="fade-up" data-aos-delay="60">
       <div class="flex flex-col md:flex-row items-center justify-between">
         <div class="md:w-3/5 w-full">
           <h2 class="font-mont text-2xl md:text-3xl text-blue-900 font-bold mb-2">О компании</h2>
@@ -198,7 +336,7 @@
   </section>
 
   <!-- Контакты -->
-  <section class="max-w-5xl mx-auto mt-10 mb-7 px-8 py-8 rounded-2xl bg-gradient-to-tr from-teal-100 via-blue-100 to-white shadow-2xl" data-aos="fade-up">
+  <section id="contacts" class="max-w-5xl mx-auto mt-10 mb-7 px-8 py-8 rounded-2xl bg-gradient-to-tr from-teal-100 via-blue-100 to-white shadow-2xl" data-aos="fade-up">
     <h2 class="font-mont text-2xl md:text-3xl font-bold text-blue-900 mb-3">Контакты</h2>
     <div class="md:flex md:space-x-16 items-start">
       <div class="space-y-2 md:min-w-max">
@@ -226,11 +364,26 @@
 
   <!-- ElevenLabs Convai Widget -->
   <elevenlabs-convai agent-id="cWZ3sxK7lNWPJ8JZEUSx"></elevenlabs-convai>
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+  <script data-cfasync="false" src="https://cdn.jsdelivr.net/npm/email-decode/dist/email-decode.min.js"></script>
+  <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
 
   <!-- AOS init -->
   <script>
+    // Инициализация анимаций AOS
     AOS.init({ duration: 900, once: true, offset: 60 });
+    
+    // Мобильное меню
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        menuToggle.innerHTML = mobileMenu.classList.contains('active') 
+          ? '<i class="fas fa-times text-2xl"></i>' 
+          : '<i class="fas fa-bars text-2xl"></i>';
+      });
+    });
   </script>
 
   <!-- ECharts: Экономика Словении -->
@@ -295,10 +448,3 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVDV3tm8GLlEOMqPRGYkEje0cm4WHdUeg&callback=initMap"></script>
 </body>
 </html>
-    <script id="html_badge_script1">
-        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDtBAS2R1eMPgaaqAd78rx1v7%2Fpt5MgPhaHgf3%2FUlmDcR4i6lzwCNqMLsBnpfiwgAX8yCR8enQ%2BhrsPsStktQKoah%2BH6oF6vz%2B%2Fus73cP6n9oQpzfnw5X4Abrw7F9clr1WGzoyUB%2F9XE1Hh1gKkmvqZ661Kl9tLgRQpVxpLs3cM6XgxydlpqLF4VSSSauaSCYZnLYnpE1cTTGcuCqDmKRfPj%2F3nU5t%2BECcL%2F1rSIlBozNfNefuvqC%2BsdQynEtz6FjsQtJk6V2CDMoFZX7uT9evkUIbebDhJWBS7COFMaQ2XaBxdm5l%2FOfHn%2BdYR5vIfZ28lRbRDcsFJLTXTYBvVei4ql7CQJKLuFYP2kufbiIrjzAmk1JaQutL9TIB3DGSRLqCZgwmnQM3cPbc%2BY7MWnXvGsGcRAOPZw1ylF27pMrttRVyIAhZz3OR%2Fve4y7B2kl5ZTZF9dmf3s07lFfTmHOfMWT9IyP9L8Iani%2F9V6t9FTOkued3hIA8FZoeaJLpnODQ8MhOVbe%2BRdv6novK6WzJuZE%3D";
-        window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDtBAS2R1eMPgaaqAd78rx1v7/pt5MgPhaHgf3/UlmDcR4i6lzwCNqMLsBnpfiwgAX8yCR8enQ+hrsPsStktQKoah+H6oF6vz+/us73cP6n9oQpzfnw5X4Abrw7F9clr1WGzoyUB/9XE1Hh1gKkmvqZ661Kl9tLgRQpVxpLs3cM6XgxydlpqLF4VSSSauaSCYZnLYnpE1cTTGcuCqDmKRfPj/3nU5t+ECcL/1rSIlBozNfNefuvqC+sdQynEtz6FjsQtJk6V2CDMoFZX7uT9evkUIbebDhJWBS7COFMaQ2XaBxdm5l/OfHn+dYR5vIfZ28lRbRDcsFJLTXTYBvVei4ql7CQJKLuFYP2kufbiIrjzAmk1JaQutL9TIB3DGSRLqCZgwmnQM3cPbc+Y7MWnXvGsGcRAOPZw1ylF27pMrttRVyIAhZz3OR/ve4y7B2kl5ZTZF9dmf3s07lFfTmHOfMWT9IyP9L8Iani/9V6t9FTOkued3hIA8FZoeaJLpnODQ8MhOVbe+Rdv6novK6WzJuZE=";
-    </script>
-    
