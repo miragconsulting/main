@@ -1,0 +1,31 @@
+name: Build Articles Index
+
+on:
+  push:
+    paths:
+      - 'articles/**'
+      - '.github/workflows/build-index.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run index generator
+        run: |
+          node generate-articles-index.js
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add articles/index.html
+          git commit -m "Аautomatically updated index.html"
+          git push
