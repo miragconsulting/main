@@ -20,7 +20,8 @@ jobs:
 
       - name: Run index generator
         run: |
-          node generate-articles-index.js
+          node articles/generate-articles-index.js
+      
 
       - name: Commit and push changes
         run: |
