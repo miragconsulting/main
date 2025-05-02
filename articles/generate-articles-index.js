@@ -2,11 +2,32 @@ const fs = require("fs");
 const path = require("path");
 
 const articlesDir = __dirname;
+
 const folders = fs.readdirSync(articlesDir).filter((f) => {
   const folderPath = path.join(articlesDir, f);
   return fs.statSync(folderPath).isDirectory() &&
          fs.existsSync(path.join(folderPath, "index.html")) &&
          fs.existsSync(path.join(folderPath, "image.png"));
+});
+
+const articles = folders.map((folder) => {
+  const indexPath = path.join(articlesDir, folder, "index.html");
+  let title = folder.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());  // fallback
+
+  try {
+    const content = fs.readFileSync(indexPath, "utf8");
+    const match = content.match(/<title>(.*?)<\/title>/i);
+    if (match && match[1]) {
+      title = match[1].trim();
+    }
+  } catch (e) {
+    console.warn(`Не удалось прочитать заголовок из ${folder}/index.html`);
+  }
+
+  return {
+    folder,
+    title
+  };
 });
 
 const html = `<!DOCTYPE html>
@@ -24,11 +45,10 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
 <h1>Список статей</h1>
-${folders.map((folder) => {
-  const previewText = folder.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  return `<a href="${folder}/index.html" class="article">
-    <img src="${folder}/image.png" alt="Превью">
-    <div><h2>${previewText}</h2><p>Подробнее...</p></div>
+${articles.map((article) => {
+  return `<a href="${article.folder}/index.html" class="article">
+    <img src="${article.folder}/image.png" alt="Превью">
+    <div><h2>${article.title}</h2><p>Подробнее...</p></div>
   </a>`;
 }).join("\n")}
 </body>
