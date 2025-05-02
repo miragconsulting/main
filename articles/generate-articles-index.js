@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const articlesDir = path.join(__dirname, "articles");
+const articlesDir = __dirname;
 const folders = fs.readdirSync(articlesDir).filter((f) => {
   const folderPath = path.join(articlesDir, f);
   return fs.statSync(folderPath).isDirectory() &&
