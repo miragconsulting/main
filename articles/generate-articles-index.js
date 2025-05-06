@@ -13,7 +13,8 @@ const folders = fs.readdirSync(articlesDir).filter((f) => {
 const articles = folders.map((folder) => {
   const indexPath = path.join(articlesDir, folder, "index.html");
   let title = folder.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  let imageUrl = null;
+  
+  // let imageUrl = null; // 🔽 Отключаем обработку изображений
 
   try {
     const content = fs.readFileSync(indexPath, "utf8");
@@ -24,25 +25,25 @@ const articles = folders.map((folder) => {
       title = titleMatch[1].trim();
     }
 
-    // Пытаемся найти <img src="...">, если image.png отсутствует
-    const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
-    if (imgMatch && imgMatch[1]) {
-      imageUrl = imgMatch[1];
-    }
+    // 🔽 Удалено: попытка найти <img src="..."> в HTML
+    // const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
+    // if (imgMatch && imgMatch[1]) {
+    //   imageUrl = imgMatch[1];
+    // }
   } catch (e) {
     console.warn(`Не удалось прочитать ${folder}/index.html`);
   }
 
-  // Если есть локальный файл image.png — используем его
-  const localImagePath = path.join(articlesDir, folder, "image.png");
-  const finalImage = fs.existsSync(localImagePath)
-    ? `${folder}/image.png`
-    : imageUrl;
+  // 🔽 Удалено: логика выбора между image.png и <img src>
+  // const localImagePath = path.join(articlesDir, folder, "image.png");
+  // const finalImage = fs.existsSync(localImagePath)
+  //   ? `${folder}/image.png`
+  //   : imageUrl;
 
   return {
     folder,
     title,
-    image: finalImage || null
+    // image: finalImage || null // 🔽 Отключаем поле image
   };
 });
 
@@ -53,21 +54,36 @@ const html = `<!DOCTYPE html>
   <title>Список статей</title>
   <style>
     body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
-    .article { display: flex; margin-bottom: 20px; background: #fff; border: 1px solid #ccc; border-radius: 8px; text-decoration: none; color: #000; overflow: hidden; }
-    .article img { width: 200px; object-fit: cover; }
-    .article div { padding: 15px; }
-    .article h2 { margin: 0 0 10px; font-size: 18px; }
+    .article {
+      display: block;
+      margin-bottom: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #000;
+      padding: 15px;
+      transition: box-shadow 0.2s ease;
+    }
+    .article:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .article h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .article p {
+      margin: 0;
+      color: #555;
+    }
   </style>
 </head>
 <body>
 <h1>Список статей</h1>
 ${articles.map((article) => {
-  const imgTag = article.image
-    ? `<img src="${article.image}" alt="Превью">`
-    : `<div style="width:200px; height:120px; background:#ccc; display:flex; align-items:center; justify-content:center;">Нет изображения</div>`;
   return `<a href="${article.folder}/index.html" class="article">
-    ${imgTag}
-    <div><h2>${article.title}</h2><p>Подробнее...</p></div>
+    <h2>${article.title}</h2>
+    <p>Подробнее...</p>
   </a>`;
 }).join("\n")}
 </body>
@@ -75,4 +91,5 @@ ${articles.map((article) => {
 
 fs.writeFileSync(path.join(articlesDir, "index.html"), html, "utf8");
 console.log("✅ index.html успешно создан.");
+
 
