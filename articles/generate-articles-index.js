@@ -16,8 +16,6 @@ const articles = folders.map((folder) => {
 
   try {
     const content = fs.readFileSync(indexPath, "utf8");
-
-    // Получаем <title>
     const titleMatch = content.match(/<title>(.*?)<\/title>/i);
     if (titleMatch && titleMatch[1]) {
       title = titleMatch[1].trim();
@@ -29,7 +27,23 @@ const articles = folders.map((folder) => {
   return { folder, title };
 });
 
-// Строим главную страницу
+// Кнопка "← Назад" на главную (вставляется только в index.html)
+const backButton = `<a href="https://miraginvest.com/" style="
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #7F00FF, #3E8EFF);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+">← Назад</a>`;
+
 const html = `<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -62,6 +76,7 @@ const html = `<!DOCTYPE html>
   </style>
 </head>
 <body>
+${backButton}
 <h1>Список статей</h1>
 ${articles.map((article) => {
   return `<a href="${article.folder}/index.html" class="article">
@@ -73,47 +88,4 @@ ${articles.map((article) => {
 </html>`;
 
 fs.writeFileSync(path.join(articlesDir, "index.html"), html, "utf8");
-console.log("✅ index.html успешно создан.");
-
-// 🔽 Кнопка "Назад" в каждую статью
-const backButton = `<a href="https://miraginvest.com/" style="
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #7F00FF, #3E8EFF);
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-">← Назад</a>`;
-
-folders.forEach((folder) => {
-  const indexPath = path.join(articlesDir, folder, "index.html");
-  try {
-    let content = fs.readFileSync(indexPath, "utf8");
-
-    // Удалим старую кнопку, если есть
-    content = content.replace(/<a[^>]+href="https:\/\/miraginvest\.com\/articles\/"[^>]*>.*?←.*?<\/a>/gis, '');
-
-    // Вставим кнопку после <h1>
-    content = content.replace(/<h1[^>]*>.*?<\/h1>/i, (match) => {
-      return `${match}\n${backButton}`;
-    });
-
-    fs.writeFileSync(indexPath, content, "utf8");
-    console.log(`🔁 Кнопка добавлена в ${folder}/index.html`);
-  } catch (e) {
-    console.warn(`⚠️ Не удалось обновить ${folder}/index.html`);
-  }
-});
-
-
-
-
-
-
+console.log("✅ Главная index.html успешно создана с кнопкой «Назад».");
