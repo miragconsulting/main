@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- Оптимизация шрифтов -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+
+  <!-- Предзагрузка изображения -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MIRAG CONSULTING D.O.O. | Ваш надёжный партнёр в инвестициях в Словении</title>
@@ -15,7 +25,7 @@
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
   <!-- AOS Animation -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js" defer></script>
   <style>
     body {
       font-family: "Open Sans", Arial, sans-serif;
@@ -130,7 +140,7 @@
   </header>
 
   <!-- HERO -->
-  <section id="home" class="hero-bg transition duration-500 min-h-72 py-16 flex flex-col justify-between items-center w-full" data-aos="zoom-in-up">
+  <section id="home" class="hero-bg min-h-72 py-16 flex flex-col justify-between items-center w-full" >
     <div class="max-w-4xl w-full mx-auto flex flex-col items-center text-center">
       <h1 class="font-mont text-white text-4xl sm:text-5xl font-bold mb-4 drop-shadow-xl" style="text-shadow: 0 2px 14px rgba(40,60,120,.26);">
         Ваш надёжный партнёр в инвестициях в Словении
@@ -370,7 +380,9 @@
   <!-- AOS init -->
   <script>
     // Инициализация анимаций AOS
-    AOS.init({ duration: 900, once: true, offset: 60 });
+    window.addEventListener('load', function () {
+      AOS.init({ duration: 900, once: true, offset: 60 });
+    });
     
     // Мобильное меню
     document.addEventListener("DOMContentLoaded", function() {
