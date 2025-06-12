@@ -3,11 +3,11 @@ name: Build Articles & Proposals Indices
 on:
   push:
     paths:
-      # статьи
+      # ─── статьи ───
       - 'articles/**'
       - '!articles/index.html'
 
-      # предложения
+      # ─── предложения ───
       - 'proposals/**'
       - '!proposals/index.html'
 
@@ -15,36 +15,64 @@ on:
       - '.github/workflows/build-indices.yml'
 
 jobs:
-  build:
+  #─────────────────────────────────────────────────────────────────
+  # 1. ARTICLES
+  #─────────────────────────────────────────────────────────────────
+  articles:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: Install cheerio
         run: npm install cheerio@^1.0.0-rc.12
 
-      # ──────────────── генерируем два индекса ────────────────
       - name: Generate articles index
         run: node articles/generate-articles-index.js
+
+      - name: Commit & push articles/index.html
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add articles/index.html
+          if git diff --cached --quiet; then
+            echo "🔹 No changes in articles – skip commit"
+          else
+            git commit -m "Auto-update articles/index.html"
+            git push
+          fi
+
+  #─────────────────────────────────────────────────────────────────
+  # 2. PROPOSALS
+  #─────────────────────────────────────────────────────────────────
+  proposals:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install cheerio
+        run: npm install cheerio@^1.0.0-rc.12
 
       - name: Generate proposals index
         run: node proposals/generate-proposals-index.js
 
-      # ──────────────── коммитим, если что-то изменилось ──────
-      - name: Commit and push changes
+      - name: Commit & push proposals/index.html
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add articles/index.html proposals/index.html
-
-          # делаем коммит только если есть изменения
+          git add proposals/index.html
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "🔹 No changes in proposals – skip commit"
           else
-            git commit -m "Automatically updated index.html files"
+            git commit -m "Auto-update proposals/index.html"
             git push
           fi
