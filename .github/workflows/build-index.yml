@@ -19,12 +19,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
+
+      - name: Install cheerio
+        run: npm install cheerio@^1.0.0-rc.12
 
       # ──────────────── генерируем два индекса ────────────────
       - name: Generate articles index
