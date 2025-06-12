@@ -32,13 +32,13 @@ const cardsHTML = folders.map(folder => {
   const ul    = ulRaw ? `<ul class="text-gray-600 mb-4">${ulRaw}</ul>` : '';
 
   /* Картинка  */
-//  const img = $('img').first().attr('src') || 'https://images.miraginvest.com/placeholder.jpg';
+ const img = $('img').first().attr('src') || 'https://images.miraginvest.com/placeholder.jpg';
 
   return `
-//  <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-//    <div class="h-48 overflow-hidden">
-//      <img src="${img}" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-//    </div>
+ <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+   <div class="h-48 overflow-hidden">
+     <img src="${img}" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+   </div>
     <div class="p-6">
       <h3 class="font-mont text-xl font-bold text-blue-900 mb-2">${title}</h3>
       ${ul}
