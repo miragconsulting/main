@@ -3,9 +3,9 @@ const fs      = require('fs');
 const path    = require('path');
 const cheerio = require('cheerio');
 
-const baseDir   = path.join(__dirname, 'proposals');   // где лежат 1/, 2/…
-const template  = path.join(__dirname, 'template.html'); // ваш большой шаблон выше
-const outputFN  = path.join(baseDir, 'index.html');    // итоговый файл
+const baseDir   = path.join(__dirname);   
+const template  = path.join(__dirname, 'template.html'); 
+const outputFN  = path.join(baseDir, 'index.html');    
 
 // ────────────────────────────────────────────────────────────────────────────────
 // 1. Собираем все подпапки с index.html
