@@ -1,10 +1,18 @@
-name: Build Articles Index
+name: Build Articles & Proposals Indices
 
 on:
   push:
     paths:
+      # статьи
       - 'articles/**'
-      - '.github/workflows/build-index.yml'
+      - '!articles/index.html'
+
+      # предложения
+      - 'proposals/**'
+      - '!proposals/index.html'
+
+      # сам workflow
+      - '.github/workflows/build-indices.yml'
 
 jobs:
   build:
@@ -18,15 +26,25 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Run index generator
-        run: |
-          node articles/generate-articles-index.js
-      
+      # ──────────────── генерируем два индекса ────────────────
+      - name: Generate articles index
+        run: node articles/generate-articles-index.js
 
+      - name: Generate proposals index
+        run: node proposals/generate-proposals-index.js
+
+      # ──────────────── коммитим, если что-то изменилось ──────
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add articles/index.html
-          git commit -m "Аautomatically updated index.html"
-          git push
+
+          git add articles/index.html proposals/index.html
+
+          # делаем коммит только если есть изменения
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Automatically updated index.html files"
+            git push
+          fi
