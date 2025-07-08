@@ -69,6 +69,9 @@ jobs:
       - name: Generate proposals index
         run: node proposals/generate-proposals-index.js
 
+      - name: Update Bled cards section
+        run: node proposals/update-bled-cards.js
+
       - name: Commit & push proposals/index.html
         run: |
           git config user.name "github-actions[bot]"
@@ -77,7 +80,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "🔹 No changes in proposals – skipping commit"
           else
-            git commit -m "Auto-update proposals/index.html"
+            git commit -m "Auto-update proposals/index.html (cards + Bled section)"
             git push
           fi
 
@@ -111,5 +114,4 @@ jobs:
             git commit -m "Auto-update land_parcel/index.html"
             git push
           fi
-
-
+          
