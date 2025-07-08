@@ -4,7 +4,7 @@ const path = require('path');
 const cheerio = require('cheerio');
 
 const baseDir = path.join(__dirname, '..', 'proposals');
-const indexFilePath = path.join(baseDir, 'index.html');
+const indexFilePath = path.join(__dirname, '..', 'index.html');
 
 // ── 1. Найти все карточки и отфильтровать по "Блед" ───────────────────────────
 const folders = fs.readdirSync(baseDir)
