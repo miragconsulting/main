@@ -1,23 +1,29 @@
-name: Build indices & update Bled cards
+name: Build indices & update cards
 
 on:
   push:
     paths:
-      # статьи
+      # ─── статьи ───
       - 'articles/**'
       - '!articles/index.html'
 
-      # предложения (карточки источники)
+      # ─── предложения (дома) ───
       - 'proposals/**'
       - '!proposals/index.html'
+
+      # ─── земельные участки ───
+      - 'land_parcel/**'
+      - '!land_parcel/index.html'
 
       # сам workflow и скрипты
       - '.github/workflows/build-index.yml'
       - 'update-bled-cards.js'
+      - 'update-land-parcel-cards.js'
       - 'articles/generate-articles-index.js'
       - 'proposals/generate-proposals-index.js'
+      - 'land_parcel/generate-proposals-index.js'
 
-concurrency:            # <-- предотвращаем гонку раннеров
+concurrency:
   group: build-index
   cancel-in-progress: true
 
@@ -26,46 +32,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+    # ───────────────────────────────────────────────
+    # 0. checkout и зависимости
+    # ───────────────────────────────────────────────
+    - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-      - name: Install deps (cheerio)
-        run: npm install cheerio@^1.0.0-rc.12
+    - name: Install cheerio
+      run: npm install cheerio@^1.0.0-rc.12
 
-      # ───────────────── 1. articles/index.html ─────────────────
-      - name: Re-generate articles index
-        run: node articles/generate-articles-index.js
+    # ───────────────────────────────────────────────
+    # 1. articles/index.html
+    # ───────────────────────────────────────────────
+    - name: Re-generate articles index
+      run: node articles/generate-articles-index.js
 
-      - name: Commit articles/index.html (if changed)
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add articles/index.html
-          git diff --cached --quiet || git commit -m "Auto-update articles/index.html"
+    # ───────────────────────────────────────────────
+    # 2. proposals/index.html  (дома)
+    # ───────────────────────────────────────────────
+    - name: Re-generate proposals index
+      run: node proposals/generate-proposals-index.js
 
-      # ───────────────── 2. proposals/index.html (общая сетка) ──
-      - name: Re-generate proposals index
-        run: node proposals/generate-proposals-index.js
+    # ───────────────────────────────────────────────
+    # 3. land_parcel/index.html  (участки)
+    # ───────────────────────────────────────────────
+    - name: Re-generate land-parcel index
+      run: node land_parcel/generate-proposals-index.js
 
-      - name: Commit proposals/index.html (if changed)
-        run: |
-          git add proposals/index.html
-          git diff --cached --quiet || git commit -m "Auto-update proposals/index.html"
+    # ───────────────────────────────────────────────
+    # 4. корневой index.html → два блока
+    # ───────────────────────────────────────────────
+    - name: Update “Bled” cards in root page
+      run: node update-bled-cards.js
 
-      # ───────────────── 3. root index.html  (Дома в Бледе) ────
-      - name: Update “Bled” cards in root index.html
-        run: node update-bled-cards.js            # файл лежит в корне!
+    - name: Update “Land parcel” cards in root page
+      run: node update-land-parcel-cards.js
 
-      - name: Commit root index.html (if changed)
-        run: |
-          git add index.html
-          git diff --cached --quiet || git commit -m "Auto-update root index.html (Bled cards)"
-
-      # ───────────────── 4. push (если были изменения) ─────────
-      - name: Push changes
-        if: github.repository_owner == 'miragconsulting'
-        run: |
-          git rev-parse --verify HEAD@{1} >/dev/null 2>&1 && git push || echo "🔹 nothing to push"
+    # ───────────────────────────────────────────────
+    # 5. commit & push, если есть изменения
+    # ───────────────────────────────────────────────
+    - name: Commit changed files
+      run: |
+        git config user.name  "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add articles/index.html proposals/index.html land_parcel/index.html index.html
+        if git diff --cached --quiet; then
+          echo "🔹 Nothing to commit"
+        else
+          git commit -m "Auto-update: indices + root blocks"
+          git push
+        fi
