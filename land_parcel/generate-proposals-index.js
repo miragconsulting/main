@@ -43,10 +43,8 @@ const cardsHTML = folders.map(folder => {
   /* ─ Карточка ─ */
   return `
     <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-      <div class="h-48 overflow-hidden">
-        <img src="${img}" alt="${title}"
-             class="w-full h-full ${imgClass} transition-transform duration-500 hover:scale-110">
-      </div>
+      <img src="${img}" alt="${title}"
+             class="w-full h-48 ${imgClass} transition-transform duration-300 hover:scale-105">
       <div class="p-6">
         <h3 class="font-mont text-xl font-bold text-blue-900 mb-2">${title}</h3>
         ${ul}
