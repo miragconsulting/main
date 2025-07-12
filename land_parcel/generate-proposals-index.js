@@ -3,16 +3,20 @@ const fs      = require('fs');
 const path    = require('path');
 const cheerio = require('cheerio');
 
-const baseDir  = __dirname;
+/* ───────── базовые пути ──────────────────────────────────────────────── */
+const baseDir  = __dirname;                               // …/proposals
 const template = path.join(baseDir, 'template.html');
 const outputFN = path.join(baseDir, 'index.html');
 
-// ── 1. Папки с объектами ───────────────────────────────────────────────────────
+/* ───────── помощник: распознаём логотип ─────────────────────────────── */
+const isLogo = src => /miraglogomini\.png$/i.test(src);
+
+/* ───────── 1. Собираем папки-объекты ────────────────────────────────── */
 const folders = fs.readdirSync(baseDir)
   .filter(f => /^\d+$/.test(f) && fs.existsSync(path.join(baseDir, f, 'index.html')))
-  .sort((a, b) => Number(b) - Number(a));
+  .sort((a, b) => Number(b) - Number(a));                 // свежие выше
 
-// ── 2. Формируем карточки ──────────────────────────────────────────────────────
+/* ───────── 2. Формируем HTML карточек ───────────────────────────────── */
 const cardsHTML = folders.map(folder => {
   const html = fs.readFileSync(path.join(baseDir, folder, 'index.html'), 'utf8');
   const $    = cheerio.load(html);
@@ -20,9 +24,9 @@ const cardsHTML = folders.map(folder => {
   /* ─ Заголовок ─ */
   const title = $('h1').first().text().trim()
              || $('title').text().trim()
-             || `Объект № ${folder}`;                     // резерв
+             || `Объект № ${folder}`;                     // fallback
 
-  /* ─ Описание (ul) ─ */
+  /* ─ Описание (берём первый <ul>) ─ */
   const ulRaw = $('ul').first().html();
   const ul    = ulRaw ? `<ul class="text-gray-600 mb-4">${ulRaw}</ul>` : '';
 
@@ -31,11 +35,17 @@ const cardsHTML = folders.map(folder => {
           || $('img').first().attr('src')                                  // резерв
           || 'https://images.miraginvest.com/placeholder.jpg';
 
+  /* ─ Выбираем класс для object-fit ─ */
+  const imgClass = isLogo(img)
+      ? 'object-contain bg-white'        // логотип — не обрезаем
+      : 'object-cover';                  // обычное фото
+
   /* ─ Карточка ─ */
   return `
     <div class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
       <div class="h-48 overflow-hidden">
-        <img src="${img}" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        <img src="${img}" alt="${title}"
+             class="w-full h-full ${imgClass} transition-transform duration-500 hover:scale-110">
       </div>
       <div class="p-6">
         <h3 class="font-mont text-xl font-bold text-blue-900 mb-2">${title}</h3>
@@ -45,10 +55,10 @@ const cardsHTML = folders.map(folder => {
     </div>`;
 }).join('\n');
 
-// ── 3. Вставляем карточки в шаблон ────────────────────────────────────────────
+/* ───────── 3. Вставляем карточки в шаблон ───────────────────────────── */
 const templateHTML = fs.readFileSync(template, 'utf8');
 const finalHTML    = templateHTML.replace('<!-- AUTO_CARDS -->', cardsHTML);
 
-// ── 4. Сохраняем итоговый index.html ───────────────────────────────────────────
+/* ───────── 4. Сохраняем итоговый index.html ─────────────────────────── */
 fs.writeFileSync(outputFN, finalHTML, 'utf8');
 console.log('✅  proposals/index.html пересобран.');
