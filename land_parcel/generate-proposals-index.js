@@ -31,9 +31,12 @@ const cardsHTML = folders.map(folder => {
   const ul    = ulRaw ? `<ul class="text-gray-600 mb-4">${ulRaw}</ul>` : '';
 
   /* ─ Главное фото ─ */
-  const img = $('.gallery-slider .swiper-slide img').first().attr('src')   // точный селектор
-          || $('img').first().attr('src')                                  // резерв
-          || 'https://images.miraginvest.com/placeholder.jpg';
+const img =
+  $(`img[src*="/land_parcel/${folder}/"]`).first().attr('src')   // 1
+  || $('.gallery-slider .swiper-slide img').first().attr('src')  // 2
+  || $('img').first().attr('src')                                // 3
+  || 'https://miraginvest.com/miraglogomini.png';                // 4
+
 
   /* ─ Выбираем класс для object-fit ─ */
   const imgClass = isLogo(img)
