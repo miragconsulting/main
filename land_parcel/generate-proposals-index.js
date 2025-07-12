@@ -9,7 +9,7 @@ const template = path.join(baseDir, 'template.html');
 const outputFN = path.join(baseDir, 'index.html');
 
 /* ───────── помощник: распознаём логотип ─────────────────────────────── */
-const isLogo = src => /miraglogomini\.png$/i.test(src);
+const isLogo = src => /miraglogo(?:mini)?\.png$/i.test(src);
 
 /* ───────── 1. Собираем папки-объекты ────────────────────────────────── */
 const folders = fs.readdirSync(baseDir)
