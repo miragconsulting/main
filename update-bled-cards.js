@@ -106,6 +106,11 @@ indexHtml = indexHtml.replace(
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     ${htmlCards}
   </div>
+  <div class="flex justify-center mt-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+    <a href="https://miraginvest.com/proposals" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:from-indigo-600 hover:to-blue-500 transition-colors duration-300">
+      Все статьи <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+  </div>
 </section>`
 );
 
