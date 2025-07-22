@@ -15,13 +15,19 @@ on:
       - 'land_parcel/**'
       - '!land_parcel/index.html'
 
+      # ─── дома у моря ───
+      - 'sea_house/**'
+      - '!sea_house/index.html'
+
       # сам workflow и скрипты
       - '.github/workflows/build-index.yml'
       - 'update-bled-cards.js'
       - 'update-land-parcel-cards.js'
+      - 'update-sea-house-cards.js'
       - 'articles/generate-articles-index.js'
       - 'proposals/generate-proposals-index.js'
       - 'land_parcel/generate-proposals-index.js'
+      - 'sea_house/generate-sea-house-index.js'
 
 concurrency:
   group: build-index
@@ -32,56 +38,65 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # ───────────────────────────────────────────────
-    # 0. checkout и зависимости
-    # ───────────────────────────────────────────────
-    - uses: actions/checkout@v4
+      # ───────────────────────────────────────────────
+      # 0. checkout и зависимости
+      # ───────────────────────────────────────────────
+      - uses: actions/checkout@v4
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Install cheerio
-      run: npm install cheerio@^1.0.0-rc.12
+      - name: Install cheerio
+        run: npm install cheerio@^1.0.0-rc.12
 
-    # ───────────────────────────────────────────────
-    # 1. articles/index.html
-    # ───────────────────────────────────────────────
-    - name: Re-generate articles index
-      run: node articles/generate-articles-index.js
+      # ───────────────────────────────────────────────
+      # 1. articles/index.html
+      # ───────────────────────────────────────────────
+      - name: Re-generate articles index
+        run: node articles/generate-articles-index.js
 
-    # ───────────────────────────────────────────────
-    # 2. proposals/index.html  (дома)
-    # ───────────────────────────────────────────────
-    - name: Re-generate proposals index
-      run: node proposals/generate-proposals-index.js
+      # ───────────────────────────────────────────────
+      # 2. proposals/index.html  (дома)
+      # ───────────────────────────────────────────────
+      - name: Re-generate proposals index
+        run: node proposals/generate-proposals-index.js
 
-    # ───────────────────────────────────────────────
-    # 3. land_parcel/index.html  (участки)
-    # ───────────────────────────────────────────────
-    - name: Re-generate land-parcel index
-      run: node land_parcel/generate-proposals-index.js
+      # ───────────────────────────────────────────────
+      # 3. land_parcel/index.html  (участки)
+      # ───────────────────────────────────────────────
+      - name: Re-generate land-parcel index
+        run: node land_parcel/generate-proposals-index.js
 
-    # ───────────────────────────────────────────────
-    # 4. корневой index.html → два блока
-    # ───────────────────────────────────────────────
-    - name: Update “Bled” cards in root page
-      run: node update-bled-cards.js
+      # ───────────────────────────────────────────────
+      # 3.5 sea_house/index.html  (дома у моря)
+      # ───────────────────────────────────────────────
+      - name: Re-generate sea-house index
+        run: node sea_house/generate-sea-house-index.js
 
-    - name: Update “Land parcel” cards in root page
-      run: node update-land-parcel-cards.js
+      # ───────────────────────────────────────────────
+      # 4. корневой index.html → три блока
+      # ───────────────────────────────────────────────
+      - name: Update “Bled” cards in root page
+        run: node update-bled-cards.js
 
-    # ───────────────────────────────────────────────
-    # 5. commit & push, если есть изменения
-    # ───────────────────────────────────────────────
-    - name: Commit changed files
-      run: |
-        git config user.name  "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add articles/index.html proposals/index.html land_parcel/index.html index.html
-        if git diff --cached --quiet; then
-          echo "🔹 Nothing to commit"
-        else
-          git commit -m "Auto-update: indices + root blocks"
-          git push
-        fi
+      - name: Update “Land parcel” cards in root page
+        run: node update-land-parcel-cards.js
+
+      - name: Update “Sea house” cards in root page
+        run: node update-sea-house-cards.js
+
+      # ───────────────────────────────────────────────
+      # 5. commit & push, если есть изменения
+      # ───────────────────────────────────────────────
+      - name: Commit changed files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add articles/index.html proposals/index.html land_parcel/index.html sea_house/index.html index.html
+          if git diff --cached --quiet; then
+            echo "🔹 Nothing to commit"
+          else
+            git commit -m "Auto-update: indices + root blocks"
+            git push
+          fi
