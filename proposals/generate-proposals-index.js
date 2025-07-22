@@ -1,3 +1,11 @@
+const fs      = require('fs');
+const path    = require('path');
+const cheerio = require('cheerio');
+
+const baseDir  = __dirname;
+const template = path.join(baseDir, 'template.html');
+const outputFN = path.join(baseDir, 'index.html');
+
 // ── 1. Папки с объектами ───────────────────────────────────────────────────────
 const folders = fs.readdirSync(baseDir)
   .filter(f => /^\d+$/.test(f) && fs.existsSync(path.join(baseDir, f, 'index.html')))
