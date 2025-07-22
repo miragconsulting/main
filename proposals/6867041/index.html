@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Оптимизация шрифтов -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+
+  <!-- Предзагрузка изображения -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Дом в Бледе — Блед, Гореньска | 2200000 €</title>
+  <meta name="description" content="Дом в Бледе в Блед, район Гореньска. Площадь: 815 м². Стоимость: 2200000 €.">
+
+  <meta property="og:title" content="Дом в Бледе — Блед, Гореньска | 2200000 €">
+  <meta property="og:description" content="Дом в Бледе в Блед, район Гореньска. Площадь: 815 м². Стоимость: 2200000 €.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://miraginvest.com/property/undefined">
+
+  <link rel="canonical" href="https://miraginvest.com/property/undefined">
+
+
+  <link rel="icon" href="https://images.miraginvest.com/favicon.ico">
+  <!-- Tailwind CSS (v2.2.19) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Fonts: Montserrat & Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js" defer></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+
+   
+  <style>
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+      color: #243146;
+    }
+    .font-mont { font-family: 'Montserrat', Arial, sans-serif; }
+    .hero-bg {
+      background: linear-gradient(105deg,rgba(36,49,100,0.74) 55%,rgba(58,222,220,0.12)),
+      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    .project-img {object-fit: cover;}
+    .blur-bg {
+      backdrop-filter: blur(4px) saturate(145%);
+      background: rgba(255,255,255,0.79);
+    }
+    [data-aos] {will-change: transform, opacity;}
+    /* Address single-line fix */
+    .nowrap-address {white-space: nowrap;}
+    .addressfix {word-break: break-word;}
+    /* For PDF export, prevent scrollbars in containers */
+    .no-scrollbar::-webkit-scrollbar {display: none;}
+    
+    /* Navigation menu styles */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4299e1;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover:after, .nav-link.active:after {
+      width: 100%;
+    }
+    .nav-link:hover {
+      color: #4299e1;
+    }
+    .nav-link.active {
+      color: #4299e1;
+      font-weight: 600;
+    }
+    /* Mobile menu */
+    .mobile-menu {
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    /* Article card hover effect */
+    .article-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    
+    .prose {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #243146;
+  line-height: 1.75;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #1e3a8a;
+  line-height: 1.25;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+.prose h1 { font-size: 2.25rem; }
+.prose h2 { font-size: 1.75rem; }
+.prose h3 { font-size: 1.5rem; }
+
+.prose p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1.125rem;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.5rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.prose img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose blockquote {
+  border-left: 4px solid #60a5fa;
+  padding-left: 1rem;
+  color: #374151;
+  font-style: italic;
+  background-color: #f0f9ff;
+  border-radius: 0.375rem;
+}
+
+
+.gallery-wrapper { display: flex; }
+.gallery-thumbs .swiper-slide img { cursor: pointer; opacity: 0.6; }
+.gallery-thumbs .swiper-slide-thumb-active img { opacity:1; border:2px solid #4299e1; }
+.gallery-slider img, .gallery-thumbs img {
+  width: 100%; height: auto; object-fit: cover; border-radius: 0.5rem;
+}
+.gallery-thumbs .swiper-slide {
+  width: auto;              
+  flex-shrink: 0;           
+}
+.gallery-thumbs .swiper-slide img {
+  width: 100px;             
+  height: 75px;             
+  object-fit: cover;        
+  border-radius: 0.375rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+
+  </style>
+</head>
+<body class="antialiased min-h-screen">
+  <!-- Шапка с навигацией -->
+  <header class="w-full z-40 relative pt-6 pb-2 px-2 sm:px-8 flex flex-col items-center justify-center">
+    <div class="w-full max-w-7xl flex flex-col sm:flex-row items-center justify-between">
+      <div class="flex items-center space-x-3" data-aos="fade-right">
+        <img src="https://images.miraginvest.com/miraglogo.png" alt="Mirag Logo" class="h-14 sm:h-16 w-auto">
+        <span class="text-2xl sm:text-3xl text-blue-700 font-mont font-bold tracking-tight">MIRAG CONSULTING D.O.O.</span>
+      </div>
+      <div class="hidden sm:flex font-mont text-base tracking-wide space-x-7">
+        <span class="text-blue-400">20+ лет на рынке</span>
+        <span class="text-gray-500">Эксперты: финансы, инжиниринг, недвижимость</span>
+      </div>
+    </div>
+    
+    <!-- Навигационное меню -->
+    <nav class="w-full max-w-7xl mt-4 flex flex-wrap items-center justify-between" data-aos="fade-down">
+      <!-- Десктопное меню -->
+      <div class="hidden md:flex font-mont text-lg tracking-wide space-x-10">
+         <a href="https://miraginvest.com/" class="nav-link active">Главная</a>
+          <a href="https://miraginvest.com/#projects" class="nav-link">Проекты</a>
+          <a href="https://miraginvest.com/#articles" class="nav-link">Статьи</a>
+          <a href="https://miraginvest.com/#about" class="nav-link">О компании</a>
+          <a href="https://miraginvest.com/#contacts" class="nav-link">Контакты</a>
+      </div>
+      
+      <!-- Мобильное меню - кнопка -->
+      <div class="md:hidden w-full flex justify-end">
+        <button id="menu-toggle" class="text-blue-700 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      <!-- Мобильное меню - содержимое -->
+      <div id="mobile-menu" class="mobile-menu md:hidden w-full mt-4 bg-white rounded-lg shadow-lg p-4">
+        <div class="flex flex-col space-y-4 font-mont text-lg">
+          <a href="https://miraginvest.com/" class="nav-link active">Главная</a>
+          <a href="https://miraginvest.com/#projects" class="nav-link">Проекты</a>
+          <a href="https://miraginvest.com/#articles" class="nav-link">Статьи</a>
+          <a href="https://miraginvest.com/#about" class="nav-link">О компании</a>
+          <a href="https://miraginvest.com/#contacts" class="nav-link">Контакты</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+<div id="dynamic-content" class="prose max-w-4xl mx-auto px-4 py-6 text-gray-800 font-sans text-lg leading-relaxed">
+
+<div class="my-6">
+
+  <a href="https://miraginvest.com/proposals/"
+     class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white no-underline rounded-full px-8 py-3 font-semibold shadow-lg hover:from-indigo-600 hover:to-blue-500 transition-colors duration-300"
+     style="text-decoration: none;">
+   <span class="text-white">← Назад к каталогу</span>
+  </a>
+</div>
+
+
+<h1 class="font-mont text-2xl font-bold text-blue-900 mb-4">Дом в Бледе</h1>
+
+<!-- ДВУКОЛОННЫЙ контейнер -->
+  <div class="flex flex-wrap md:flex-nowrap items-start md:space-x-6">
+
+    <!-- Левая колонка: миниатюры + описание -->
+    <div class="w-full md:w-1/3 flex flex-col">
+
+      <!-- миниатюры: ОБЯЗАТЕЛЬНО есть .swiper-wrapper -->
+      <div class="swiper-container gallery-thumbs mb-4">
+        <div class="swiper-wrapper">
+            
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284860.jpg" alt="thumb0">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284861.jpg" alt="thumb1">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284862.jpg" alt="thumb2">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284863.jpg" alt="thumb3">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284864.jpg" alt="thumb4">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284865.jpg" alt="thumb5">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284866.jpg" alt="thumb6">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284867.jpg" alt="thumb7">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284868.jpg" alt="thumb8">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284869.jpg" alt="thumb9">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284870.jpg" alt="thumb10">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284871.jpg" alt="thumb11">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284872.jpg" alt="thumb12">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284873.jpg" alt="thumb13">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284874.jpg" alt="thumb14">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284875.jpg" alt="thumb15">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284876.jpg" alt="thumb16">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284877.jpg" alt="thumb17">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284878.jpg" alt="thumb18">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284879.jpg" alt="thumb19">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284880.jpg" alt="thumb20">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284881.jpg" alt="thumb21">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284882.jpg" alt="thumb22">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284883.jpg" alt="thumb23">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284884.jpg" alt="thumb24">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284885.jpg" alt="thumb25">
+  </div>
+        </div>
+      </div>
+      
+      <ul class="text-gray-600 mb-4">
+        <li><strong>Город:</strong> Блед</li>
+        <li><strong>Район:</strong> Гореньска</li>
+        <li><strong>Площадь дома:</strong> 815 м²</li>
+        <li><strong>Площадь участка:</strong> 11994 м²</li>
+        <li><strong>Стоимость:</strong> 2200000 €</li>        
+      </ul>
+      
+    </div>
+
+    <!-- Правая колонка: большой слайдер -->
+  <div class="swiper-container gallery-slider">
+    <div class="swiper-wrapper">
+             
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284860.jpg" alt="main0">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284861.jpg" alt="main1">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284862.jpg" alt="main2">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284863.jpg" alt="main3">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284864.jpg" alt="main4">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284865.jpg" alt="main5">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284866.jpg" alt="main6">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284867.jpg" alt="main7">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284868.jpg" alt="main8">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284869.jpg" alt="main9">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284870.jpg" alt="main10">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284871.jpg" alt="main11">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284872.jpg" alt="main12">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284873.jpg" alt="main13">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284874.jpg" alt="main14">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284875.jpg" alt="main15">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284876.jpg" alt="main16">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284877.jpg" alt="main17">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284878.jpg" alt="main18">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284879.jpg" alt="main19">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284880.jpg" alt="main20">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284881.jpg" alt="main21">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284882.jpg" alt="main22">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284883.jpg" alt="main23">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284884.jpg" alt="main24">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/proposals/6867041/15284885.jpg" alt="main25">
+  </div>  
+    </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+  </div>
+  
+</div>
+
+
+<p>Представляем вашему вниманию выдающееся владение в <strong>Бледе</strong>, расположенное на участке площадью 11.994 м² у самого берега Озера Блед. Это замечательное место открывает захватывающие панорамные виды на окружающую природу и величественные горы. <br>Посетите этот идеальный уголок, который включает две жилые постройки, луга, сад, пруд, частный парк, стоянки, конюшни, амбар и прекрасное лесное окружение. 🏡🌲</p>
+
+<p>Основная резиденция располагает площадью 578 м², разбитой на три уровня, включая разветвленные подвальные помещения (282 м²), элегантное жилое пространство на первом этаже (131 м²) и изысканную мансарду (115 м²). В доме есть четыре полностью оборудованные спальни, две роскошные сауны и винный погреб. Кухня оснащена техникой ведущих брендов, а отделка выполнена с использованием македонского мрамора и сочетания гранитных и деревянных полов. 🔥🍷</p>
+
+<p>Второстепенная постройка, завершённая в 2022 году, является образцом современного зодчества с площадью 163 м². В этом двухэтажном доме в альпийском стиле предусмотрены стильная кухня и высококачественная сантехника. Отопление комплекса разнообразно: топливо, дрова и электроэнергия обеспечивают комфорт через радиаторы, солнечные коллекторы и теплые полы. <br>Новая солнечная электростанция снижает энергозатраты, делая дом не только роскошным, но и эффективным. 🔆</p>
+
+<p>К вашим услугам гараж на несколько автомобилей, а также дополнительные строения для преобразования в жилые помещения. Доступные охранные системы с сигнализацией и камерами обеспечивают безопасность на территории.</p>
+
+<ul>
+  <li><strong>Площадь дома:</strong> 815 м²</li>
+  <li><strong>Площадь земли:</strong> 11.994 м²</li>
+  <li><strong>Год постройки:</strong> 1985</li>
+  <li><strong>Реконструкция:</strong> 2022</li>
+  <li><strong>Гараж:</strong> на 3+ автомобиля</li>
+  <li><strong>Цена:</strong> <strong>2.200.000,00 EUR</strong> 💶</li>
+</ul>
+
+
+</div>    
+  
+  <!-- О компании -->
+  <section id="about" class="max-w-5xl mx-auto my-20 px-4 py-9 rounded-2xl shadow-2xl bg-gradient-to-tr from-blue-100 via-white to-teal-100" data-aos="fade-up" data-aos-delay="60">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-3/5 w-full">
+          <h2 class="font-mont text-2xl md:text-3xl text-blue-900 font-bold mb-2">О компании</h2>
+          <p class="mt-3 text-lg text-gray-800 leading-relaxed">
+            <span class="font-bold text-blue-600">MIRAG CONSULTING D.O.O.</span> — это команда профессионалов с более чем 20-летним опытом. Мы предоставляем полный спектр услуг в области финансового консалтинга, инжиниринга и недвижимости в Словении. Наша команда из более чем 10 экспертов имеет все лицензии и сертификации. <br> Главные ценности: эффективность, прозрачность, индивидуальный подход.
+          </p>
+        </div>
+        <div class="md:w-2/5 w-full flex justify-center mt-6 md:mt-0" data-aos="fade-left">
+          <img src="https://images.miraginvest.com/miraglogo.png" alt="Mirag Consulting" class="w-40 h-40 object-contain rounded-full shadow-xl border-4 border-blue-200">
+        </div>
+      </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contacts" class="max-w-5xl mx-auto mt-10 mb-7 px-8 py-8 rounded-2xl bg-gradient-to-tr from-teal-100 via-blue-100 to-white shadow-2xl" data-aos="fade-up">
+    <h2 class="font-mont text-2xl md:text-3xl font-bold text-blue-900 mb-3">Контакты</h2>
+    <div class="md:flex md:space-x-16 items-start">
+      <div class="space-y-2 md:min-w-max">
+        <div class="flex items-center space-x-2"><i class="fas fa-envelope text-blue-500"></i>
+          <a href="mailto:info@mirag.si" class="text-lg text-blue-700 hover:underline">info@mirag.si</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fas fa-phone text-blue-500"></i>
+          <a href="tel:+38664177151" class="text-lg text-blue-700 hover:underline">+386 64 177 151</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fab fa-whatsapp text-green-500"></i>
+          <a href="https://wa.me/38664177151" class="text-lg text-blue-700 hover:underline" target="_blank">WhatsApp</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fab fa-telegram-plane text-blue-400"></i>
+          <a href="https://t.me/yourtelegram" class="text-lg text-blue-700 hover:underline" target="_blank">Telegram</a>
+        </div>
+        <div class="flex items-center space-x-2 addressfix"><i class="fas fa-map-marker-alt text-red-400"></i>
+          <span class="text-lg text-blue-700">Slovenia, Ljubljana, Likozarjeva ulica&nbsp;3</span>
+        </div>
+      </div>
+      <div class="flex-1 mt-5 md:mt-0 md:max-w-lg w-full h-80 rounded-lg overflow-hidden shadow-xl border-2 border-blue-100">
+        <div id="gmap" class="w-full h-full"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ElevenLabs Convai Widget -->
+  <elevenlabs-convai agent-id="agent_01jz05jddyec8afxxwt9b2pzdx"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <!-- AOS init -->
+  <script>
+    // Инициализация анимаций AOS
+    window.addEventListener('load', function () {
+      AOS.init({ duration: 900, once: true, offset: 60 });
+    });
+    
+    // Мобильное меню
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        menuToggle.innerHTML = mobileMenu.classList.contains('active') 
+          ? '<i class="fas fa-times text-2xl"></i>' 
+          : '<i class="fas fa-bars text-2xl"></i>';
+      });
+    });
+  </script>
+
+  <!-- ECharts: Экономика Словении -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // Экономический рост Словении, только ростовые года (условное значение, позитивный тренд)
+      const chartDom = document.getElementById('eco-chart');
+      if (chartDom) {
+        const ecoChart = echarts.init(chartDom);
+        const option = {
+          grid: {left: 55, right: 12, top: 22, bottom: 36},
+          xAxis: {
+              type: 'category',
+              data: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+              axisLine: { lineStyle: { color: '#4299e1' }},
+              axisLabel: { color: '#243146', fontFamily: 'Montserrat', fontWeight: 'bold' }
+          },
+          yAxis: {
+              type: 'value',
+              axisLabel: { color: '#4299e1', fontWeight: 600, fontFamily: 'Montserrat', formatter: '{value} %'},
+              splitLine: { lineStyle: { color: "#e0e7ff" } }
+          },
+          series: [{
+              data: [1.5, 3.1, 4.2, 4.5, 5.2, 5.8, 6.3],
+              type: 'line',
+              smooth: true,
+              lineStyle: { color: '#38bdf8', width: 4, shadowColor:'#bee3f8', shadowBlur:10 },
+              itemStyle: { color: '#60a5fa', shadowColor:'#38bdf8', shadowBlur:6 },
+              areaStyle: {
+                color: new echarts.graphic.LinearGradient(0,0,0,1, [
+                  {offset:0, color:'#38bdf8cc'},
+                  {offset:1, color:'#C7D2FE33'}
+                ])
+              },
+              symbol: 'circle',
+              symbolSize: 10,
+              emphasis: { focus: 'series' }
+          }],
+          tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#2563eb',
+            borderRadius: 8,
+            textStyle: {color:'#fff', fontFamily: 'Montserrat', fontWeight:600}
+          }
+        };
+        ecoChart.setOption(option);
+        window.addEventListener('resize', () => ecoChart.resize());
+      }
+    });
+  </script>
+
+  <!-- Google Maps -->
+  <script>
+    window.initMap = function() {
+      var loc = {lat: 46.0632, lng: 14.5098};
+      var map = new google.maps.Map(document.getElementById('gmap'), {
+        center: loc, zoom: 16, disableDefaultUI: true, gestureHandling: 'none'
+      });
+      new google.maps.Marker({position: loc, map: map, title: "MIRAG CONSULTING D.O.O."});
+    };
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4VMj-Y4M8UxnnIunJR5mcd58MzRVndFg&callback=initMap"></script>
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const thumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 'auto',
+      watchSlidesProgress: true,
+      centeredSlides: true,
+      loop: true,
+      slideToClickedSlide: true,
+    });
+
+    const slider = new Swiper('.gallery-slider', {
+      spaceBetween: 10,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: { swiper: thumbs },
+    });
+  });
+</script>
+
+
+</body>
+</html>
