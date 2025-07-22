@@ -3,9 +3,8 @@ const path    = require('path');
 const cheerio = require('cheerio');
 
 /* ───────── конфигурация путей ─────────────────────────────────────────── */
-// __dirname здесь: …/main/sea_house
-const repoRoot  = path.join(__dirname, '..');
-const baseDir   = path.join(repoRoot, 'sea_house');
+const repoRoot  = __dirname;                     // …/main
+const baseDir   = path.join(repoRoot, 'land_parcel');
 const indexPath = path.join(repoRoot, 'index.html');
 
 /* ───────── вспомогательные функции ────────────────────────────────────── */
