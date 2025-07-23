@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Оптимизация шрифтов -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+
+  <!-- Предзагрузка изображения -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Земельный участок в Тачене, Любляна — Любляна, Тачен | 513600 €</title>
+  <meta name="description" content="Земельный участок в Тачене, Любляна в Любляна, район Тачен. Площадь: 428 м². Стоимость: 513600 €.">
+
+  <meta property="og:title" content="Земельный участок в Тачене, Любляна — Любляна, Тачен | 513600 €">
+  <meta property="og:description" content="Земельный участок в Тачене, Любляна в Любляна, район Тачен. Площадь: 428 м². Стоимость: 513600 €.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://miraginvest.com/property/undefined">
+
+  <link rel="canonical" href="https://miraginvest.com/property/undefined">
+
+
+  <link rel="icon" href="https://images.miraginvest.com/favicon.ico">
+  <!-- Tailwind CSS (v2.2.19) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Fonts: Montserrat & Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js" defer></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+
+   
+  <style>
+    body {
+      font-family: "Open Sans", Arial, sans-serif;
+      background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+      color: #243146;
+    }
+    .font-mont { font-family: 'Montserrat', Arial, sans-serif; }
+    .hero-bg {
+      background: linear-gradient(105deg,rgba(36,49,100,0.74) 55%,rgba(58,222,220,0.12)),
+      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+    .project-img {object-fit: cover;}
+    .blur-bg {
+      backdrop-filter: blur(4px) saturate(145%);
+      background: rgba(255,255,255,0.79);
+    }
+    [data-aos] {will-change: transform, opacity;}
+    /* Address single-line fix */
+    .nowrap-address {white-space: nowrap;}
+    .addressfix {word-break: break-word;}
+    /* For PDF export, prevent scrollbars in containers */
+    .no-scrollbar::-webkit-scrollbar {display: none;}
+    
+    /* Navigation menu styles */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4299e1;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover:after, .nav-link.active:after {
+      width: 100%;
+    }
+    .nav-link:hover {
+      color: #4299e1;
+    }
+    .nav-link.active {
+      color: #4299e1;
+      font-weight: 600;
+    }
+    /* Mobile menu */
+    .mobile-menu {
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    .mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    /* Article card hover effect */
+    .article-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    
+    .prose {
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: #243146;
+      line-height: 1.75;
+    }
+    
+    .prose h1, .prose h2, .prose h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #1e3a8a;
+      line-height: 1.25;
+      margin-top: 1.2em;
+      margin-bottom: 0.6em;
+    }
+    
+    .prose h1 { font-size: 2.25rem; }
+    .prose h2 { font-size: 1.75rem; }
+    .prose h3 { font-size: 1.5rem; }
+    
+    .prose p {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      font-size: 1.125rem;
+    }
+    
+    .prose ul, .prose ol {
+      padding-left: 1.5rem;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    
+    .prose li {
+      margin-bottom: 0.5em;
+    }
+    
+    .prose strong {
+      font-weight: 600;
+      color: #1e40af;
+    }
+    
+    .prose a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    
+    .prose img {
+      max-width: 100%;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    
+    .prose blockquote {
+      border-left: 4px solid #60a5fa;
+      padding-left: 1rem;
+      color: #374151;
+      font-style: italic;
+      background-color: #f0f9ff;
+      border-radius: 0.375rem;
+    }
+    
+    
+    .gallery-wrapper{display:flex}
+    
+    /* -------------------------------- миниатюры */
+    .gallery-thumbs .swiper-slide{
+      width:auto;
+      flex-shrink:0
+    }
+    .gallery-thumbs .swiper-slide img{
+      width:100px;
+      height:75px;
+      object-fit:cover;
+      border-radius:.375rem;
+      cursor:pointer;
+      opacity:.6
+    }
+    .gallery-thumbs .swiper-slide-thumb-active img{
+      opacity:1;
+      border:2px solid #4299e1
+    }
+    
+    /* -------------------------------- основной слайдер */
+    .gallery-slider img:not(.object-contain){object-fit:cover}
+  </style>
+</head>
+<body class="antialiased min-h-screen">
+  <!-- Шапка с навигацией -->
+  <header class="w-full z-40 relative pt-6 pb-2 px-2 sm:px-8 flex flex-col items-center justify-center">
+    <div class="w-full max-w-7xl flex flex-col sm:flex-row items-center justify-between">
+      <div class="flex items-center space-x-3" data-aos="fade-right">
+        <img src="https://images.miraginvest.com/miraglogo.png" alt="Mirag Logo" class="h-14 sm:h-16 w-auto">
+        <span class="text-2xl sm:text-3xl text-blue-700 font-mont font-bold tracking-tight">MIRAG CONSULTING D.O.O.</span>
+      </div>
+      <div class="hidden sm:flex font-mont text-base tracking-wide space-x-7">
+        <span class="text-blue-400">20+ лет на рынке</span>
+        <span class="text-gray-500">Эксперты: финансы, инжиниринг, недвижимость</span>
+      </div>
+    </div>
+    
+    <!-- Навигационное меню -->
+    <nav class="w-full max-w-7xl mt-4 flex flex-wrap items-center justify-between" data-aos="fade-down">
+      <!-- Десктопное меню -->
+      <div class="hidden md:flex font-mont text-lg tracking-wide space-x-10">
+         <a href="https://miraginvest.com/" class="nav-link active">Главная</a>
+          <a href="https://miraginvest.com/#projects" class="nav-link">Проекты</a>
+          <a href="https://miraginvest.com/#articles" class="nav-link">Статьи</a>
+          <a href="https://miraginvest.com/#about" class="nav-link">О компании</a>
+          <a href="https://miraginvest.com/#contacts" class="nav-link">Контакты</a>
+      </div>
+      
+      <!-- Мобильное меню - кнопка -->
+      <div class="md:hidden w-full flex justify-end">
+        <button id="menu-toggle" class="text-blue-700 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      <!-- Мобильное меню - содержимое -->
+      <div id="mobile-menu" class="mobile-menu md:hidden w-full mt-4 bg-white rounded-lg shadow-lg p-4">
+        <div class="flex flex-col space-y-4 font-mont text-lg">
+          <a href="https://miraginvest.com/" class="nav-link active">Главная</a>
+          <a href="https://miraginvest.com/#projects" class="nav-link">Проекты</a>
+          <a href="https://miraginvest.com/#articles" class="nav-link">Статьи</a>
+          <a href="https://miraginvest.com/#about" class="nav-link">О компании</a>
+          <a href="https://miraginvest.com/#contacts" class="nav-link">Контакты</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+<div id="dynamic-content" class="prose max-w-4xl mx-auto px-4 py-6 text-gray-800 font-sans text-lg leading-relaxed">
+
+<div class="my-6">
+
+  <a href="https://miraginvest.com/land_parcel/"
+     class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white no-underline rounded-full px-8 py-3 font-semibold shadow-lg hover:from-indigo-600 hover:to-blue-500 transition-colors duration-300"
+     style="text-decoration: none;">
+   <span class="text-white">← Назад к каталогу</span>
+  </a>
+</div>
+
+
+<h1 class="font-mont text-2xl font-bold text-blue-900 mb-4">Земельный участок в Тачене, Любляна</h1>
+
+<!-- ДВУКОЛОННЫЙ контейнер -->
+<div class="flex flex-wrap md:flex-nowrap items-start md:space-x-6">
+
+  <!-- Левая колонка: миниатюры + описание -->
+  <div class="w-full md:w-1/3 flex flex-col">
+
+    <!-- 🟢  вставляем thumbnails ТОЛЬКО если hasCarousel -->
+    
+  <div class="swiper-container gallery-thumbs mb-4">
+    <div class="swiper-wrapper">
+      
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852414.jpg"
+         alt="thumb0"
+         class="w-full h-32 md:h-40 rounded-md object-cover">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852415.jpg"
+         alt="thumb1"
+         class="w-full h-32 md:h-40 rounded-md object-cover">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852416.jpg"
+         alt="thumb2"
+         class="w-full h-32 md:h-40 rounded-md object-cover">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852417.jpg"
+         alt="thumb3"
+         class="w-full h-32 md:h-40 rounded-md object-cover">
+  </div>
+  <div class="swiper-slide">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852627.jpg"
+         alt="thumb4"
+         class="w-full h-32 md:h-40 rounded-md object-cover">
+  </div>
+    </div>
+  </div>
+
+    <ul class="text-gray-600 mb-4">
+      <li><strong>Город:</strong> Любляна</li>
+      <li><strong>Район:</strong> Тачен</li>
+      <li><strong>Площадь участка:</strong> 428 м²</li>
+      <li><strong>Стоимость:</strong> 513600 €</li>
+    </ul>
+
+  </div>
+
+  <!-- Правая колонка -->
+  <div class="w-full md:w-2/3">
+    
+  <div class="swiper-container gallery-slider">
+    <div class="swiper-wrapper">
+      
+  <div class="swiper-slide flex justify-center">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852414.jpg"
+         alt="main0"
+         class="w-full max-h-80 md:max-h-[460px] object-cover rounded-lg">
+  </div>
+  <div class="swiper-slide flex justify-center">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852415.jpg"
+         alt="main1"
+         class="w-full max-h-80 md:max-h-[460px] object-cover rounded-lg">
+  </div>
+  <div class="swiper-slide flex justify-center">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852416.jpg"
+         alt="main2"
+         class="w-full max-h-80 md:max-h-[460px] object-cover rounded-lg">
+  </div>
+  <div class="swiper-slide flex justify-center">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852417.jpg"
+         alt="main3"
+         class="w-full max-h-80 md:max-h-[460px] object-cover rounded-lg">
+  </div>
+  <div class="swiper-slide flex justify-center">
+    <img src="https://miraginvest.com/land_parcel/6791919/13852627.jpg"
+         alt="main4"
+         class="w-full max-h-80 md:max-h-[460px] object-cover rounded-lg">
+  </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  </div>
+</div>
+
+
+
+<p>Предлагается к продаже земельный участок площадью 428 кв.м в одном из наиболее востребованных районов Любляны — Tacen. Участок предназначен для строительства жилого дома и находится на стадии получения правомочного строительного разрешения. Это обеспечивает готовность к началу строительных работ при минимальной задержке.</p>
+
+<p>Архитектурная концепция предусматривает возведение дома следующей этажности: подвал + первый этаж + второй этаж (K+P+1) в прямоугольной форме. Полезная площадь составляет 133,7 кв.м, общая брутто площадь — 360,7 кв.м, предоставляя достаточно пространства для комфортного проживания.</p>
+
+<p>Инженерная инфраструктура района полностью развита, что гарантирует подключение к необходимым коммуникациям без дополнительных затрат времени и ресурсов.</p>
+
+<p>Юридическое положение земли чистое, процесс получения строительного разрешения практически завершён.</p>
+
+<p>Участок находится в 10 минутах езды на автомобиле от центра Любляны. Отличная транспортная доступность также поддерживается автобусными линиями 1, 8 и 15, на которых дорога до центра занимает 15-20 минут. Рядом имеется удобный выход на автодорожную развязку.</p>
+
+<p>В шаговой доступности от участка располагаются супермаркет «Шпар», начальная школа, детский сад, многочисленные прогулочные маршруты, почтовое отделение и банк, что делает проживание в районе комфортным и удобным.</p>
+
+<ul>
+  <li>Площадь участка: 428 кв.м</li>
+  <li>Полезная площадь дома: 133,7 кв.м</li>
+  <li>Общая площадь дома: 360,7 кв.м</li>
+  <li>Этажность: K+P+1</li>
+  <li>Развитая инфраструктура 🎯</li>
+  <li>Транспортная доступность: авто и общественный транспорт 🚗🚌</li>
+</ul>
+
+<p>Инвестиционная привлекательность данной недвижимости оценивается на 8 из 10. Участок расположен в престижном районе с отличной инфраструктурой и транспортной доступностью, что делает его идеальным вариантом для строительства жилого дома.</p>
+
+<p>Стоимость участка составляет <strong>513,600 EUR</strong> (исходя из цены 1.200 EUR/кв.м), не включая 22% НДС.</p>
+
+
+</div>    
+  
+  <!-- О компании -->
+  <section id="about" class="max-w-5xl mx-auto my-20 px-4 py-9 rounded-2xl shadow-2xl bg-gradient-to-tr from-blue-100 via-white to-teal-100" data-aos="fade-up" data-aos-delay="60">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-3/5 w-full">
+          <h2 class="font-mont text-2xl md:text-3xl text-blue-900 font-bold mb-2">О компании</h2>
+          <p class="mt-3 text-lg text-gray-800 leading-relaxed">
+            <span class="font-bold text-blue-600">MIRAG CONSULTING D.O.O.</span> — это команда профессионалов с более чем 20-летним опытом. Мы предоставляем полный спектр услуг в области финансового консалтинга, инжиниринга и недвижимости в Словении. Наша команда из более чем 10 экспертов имеет все лицензии и сертификации. <br> Главные ценности: эффективность, прозрачность, индивидуальный подход.
+          </p>
+        </div>
+        <div class="md:w-2/5 w-full flex justify-center mt-6 md:mt-0" data-aos="fade-left">
+          <img src="https://images.miraginvest.com/miraglogo.png" alt="Mirag Consulting" class="w-40 h-40 object-contain rounded-full shadow-xl border-4 border-blue-200">
+        </div>
+      </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contacts" class="max-w-5xl mx-auto mt-10 mb-7 px-8 py-8 rounded-2xl bg-gradient-to-tr from-teal-100 via-blue-100 to-white shadow-2xl" data-aos="fade-up">
+    <h2 class="font-mont text-2xl md:text-3xl font-bold text-blue-900 mb-3">Контакты</h2>
+    <div class="md:flex md:space-x-16 items-start">
+      <div class="space-y-2 md:min-w-max">
+        <div class="flex items-center space-x-2"><i class="fas fa-envelope text-blue-500"></i>
+          <a href="mailto:info@mirag.si" class="text-lg text-blue-700 hover:underline">info@mirag.si</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fas fa-phone text-blue-500"></i>
+          <a href="tel:+38664177151" class="text-lg text-blue-700 hover:underline">+386 64 177 151</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fab fa-whatsapp text-green-500"></i>
+          <a href="https://wa.me/38664177151" class="text-lg text-blue-700 hover:underline" target="_blank">WhatsApp</a>
+        </div>
+        <div class="flex items-center space-x-2"><i class="fab fa-telegram-plane text-blue-400"></i>
+          <a href="https://t.me/yourtelegram" class="text-lg text-blue-700 hover:underline" target="_blank">Telegram</a>
+        </div>
+        <div class="flex items-center space-x-2 addressfix"><i class="fas fa-map-marker-alt text-red-400"></i>
+          <span class="text-lg text-blue-700">Slovenia, Ljubljana, Likozarjeva ulica&nbsp;3</span>
+        </div>
+      </div>
+      <div class="flex-1 mt-5 md:mt-0 md:max-w-lg w-full h-80 rounded-lg overflow-hidden shadow-xl border-2 border-blue-100">
+        <div id="gmap" class="w-full h-full"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ElevenLabs Convai Widget -->
+  <elevenlabs-convai agent-id="agent_01jz05jddyec8afxxwt9b2pzdx"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+  <!-- AOS init -->
+  <script>
+    // Инициализация анимаций AOS
+    window.addEventListener('load', function () {
+      AOS.init({ duration: 900, once: true, offset: 60 });
+    });
+    
+    // Мобильное меню
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        menuToggle.innerHTML = mobileMenu.classList.contains('active') 
+          ? '<i class="fas fa-times text-2xl"></i>' 
+          : '<i class="fas fa-bars text-2xl"></i>';
+      });
+    });
+  </script>
+
+  <!-- ECharts: Экономика Словении -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // Экономический рост Словении, только ростовые года (условное значение, позитивный тренд)
+      const chartDom = document.getElementById('eco-chart');
+      if (chartDom) {
+        const ecoChart = echarts.init(chartDom);
+        const option = {
+          grid: {left: 55, right: 12, top: 22, bottom: 36},
+          xAxis: {
+              type: 'category',
+              data: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+              axisLine: { lineStyle: { color: '#4299e1' }},
+              axisLabel: { color: '#243146', fontFamily: 'Montserrat', fontWeight: 'bold' }
+          },
+          yAxis: {
+              type: 'value',
+              axisLabel: { color: '#4299e1', fontWeight: 600, fontFamily: 'Montserrat', formatter: '{value} %'},
+              splitLine: { lineStyle: { color: "#e0e7ff" } }
+          },
+          series: [{
+              data: [1.5, 3.1, 4.2, 4.5, 5.2, 5.8, 6.3],
+              type: 'line',
+              smooth: true,
+              lineStyle: { color: '#38bdf8', width: 4, shadowColor:'#bee3f8', shadowBlur:10 },
+              itemStyle: { color: '#60a5fa', shadowColor:'#38bdf8', shadowBlur:6 },
+              areaStyle: {
+                color: new echarts.graphic.LinearGradient(0,0,0,1, [
+                  {offset:0, color:'#38bdf8cc'},
+                  {offset:1, color:'#C7D2FE33'}
+                ])
+              },
+              symbol: 'circle',
+              symbolSize: 10,
+              emphasis: { focus: 'series' }
+          }],
+          tooltip: {
+            trigger: 'axis',
+            backgroundColor: '#2563eb',
+            borderRadius: 8,
+            textStyle: {color:'#fff', fontFamily: 'Montserrat', fontWeight:600}
+          }
+        };
+        ecoChart.setOption(option);
+        window.addEventListener('resize', () => ecoChart.resize());
+      }
+    });
+  </script>
+
+  <!-- Google Maps -->
+  <script>
+    window.initMap = function() {
+      var loc = {lat: 46.0632, lng: 14.5098};
+      var map = new google.maps.Map(document.getElementById('gmap'), {
+        center: loc, zoom: 16, disableDefaultUI: true, gestureHandling: 'none'
+      });
+      new google.maps.Marker({position: loc, map: map, title: "MIRAG CONSULTING D.O.O."});
+    };
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4VMj-Y4M8UxnnIunJR5mcd58MzRVndFg&callback=initMap"></script>
+
+
+  <script>
+    /* запускаем Swiper только если есть карусель */
+    if (true) {
+      document.addEventListener('DOMContentLoaded', () => {
+        const thumbs = new Swiper('.gallery-thumbs', {
+          spaceBetween: 10,
+          slidesPerView: 'auto',
+          watchSlidesProgress: true,
+          centeredSlides: true,
+          loop: true,
+          slideToClickedSlide: true,
+        });
+        const slider = new Swiper('.gallery-slider', {
+          spaceBetween: 10,
+          loop: true,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          thumbs: { swiper: thumbs },
+        });
+      });
+    }
+  </script>
+
+
+
+</body>
+</html>
