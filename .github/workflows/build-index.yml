@@ -15,19 +15,19 @@ on:
       - 'land_parcel/**'
       - '!land_parcel/index.html'
 
-      # ─── дома у моря ───
-      - 'sea_house/**'
-      - '!sea_house/index.html'
+      # # ─── дома у моря ───
+      # - 'sea_house/**'
+      # - '!sea_house/index.html'
 
       # сам workflow и скрипты
       - '.github/workflows/build-index.yml'
       - 'update-bled-cards.js'
       - 'update-land-parcel-cards.js'
-      - 'update-sea-house-cards.js'
+      # - 'update-sea-house-cards.js'
       - 'articles/generate-articles-index.js'
       - 'proposals/generate-proposals-index.js'
       - 'land_parcel/generate-proposals-index.js'
-      - 'sea_house/generate-sea-house-index.js'
+      # - 'sea_house/generate-sea-house-index.js'
 
 concurrency:
   group: build-index
@@ -68,11 +68,11 @@ jobs:
       - name: Re-generate land-parcel index
         run: node land_parcel/generate-proposals-index.js
 
-      # ───────────────────────────────────────────────
-      # 3.5 sea_house/index.html  (дома у моря)
-      # ───────────────────────────────────────────────
-      - name: Re-generate sea-house index
-        run: node sea_house/generate-sea-house-index.js
+      # # ───────────────────────────────────────────────
+      # # 3.5 sea_house/index.html  (дома у моря)
+      # # ───────────────────────────────────────────────
+      # - name: Re-generate sea-house index
+      #   run: node sea_house/generate-sea-house-index.js
 
       # ───────────────────────────────────────────────
       # 4. корневой index.html → три блока
@@ -83,8 +83,8 @@ jobs:
       - name: Update “Land parcel” cards in root page
         run: node update-land-parcel-cards.js
 
-      - name: Update “Sea house” cards in root page
-        run: node update-sea-house-cards.js
+      # - name: Update “Sea house” cards in root page
+      #   run: node update-sea-house-cards.js
 
       # ───────────────────────────────────────────────
       # 5. commit & push, если есть изменения
