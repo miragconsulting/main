@@ -45,7 +45,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install cheerio
         run: npm install cheerio@^1.0.0-rc.12
