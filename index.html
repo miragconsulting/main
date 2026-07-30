@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <!-- Оптимизация шрифтов -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,14 +14,10 @@
   <!-- Предзагрузка изображения -->
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MIRAG CONSULTING D.O.O. | Ваш надёжный партнёр в инвестициях в Словении</title>
   <link rel="icon" href="https://images.miraginvest.com/favicon.ico">
   <!-- Tailwind CSS (v2.2.19) -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Google Fonts: Montserrat & Open Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
   <!-- ECharts -->
@@ -381,7 +380,9 @@
   <script>
     // Инициализация анимаций AOS
     window.addEventListener('load', function () {
-      AOS.init({ duration: 900, once: true, offset: 60 });
+      if (window.AOS) {
+        AOS.init({ duration: 900, once: true, offset: 60 });
+      }
     });
     
     // Мобильное меню
